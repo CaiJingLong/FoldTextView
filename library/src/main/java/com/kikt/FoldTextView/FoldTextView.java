@@ -151,6 +151,7 @@ public class FoldTextView extends TextView {
                         setMax(height);
                     }
                     getLayoutParams().height = minHeight;
+                    isFold = true;
                     requestLayout();
                 }
             });

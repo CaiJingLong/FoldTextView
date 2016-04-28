@@ -16,7 +16,7 @@
             tv.setDuration(200);
             //        tv.setMax(2000);//不设置则自动wrap_content，设置则max根据设置
             tv.setMin(0);
-            tv.setText("hello world\n\ndsljfl\ndsfjds");
+            tv.setText("hello world\n\ndsljfl\ndsfjds");//调用该方法时，会自动将当前的高度设置到min的高度
 
             tv.setOnFoldChangeListener(new FoldTextView.OnFoldChangeListener() {
                 @Override
