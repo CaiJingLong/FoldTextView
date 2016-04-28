@@ -36,10 +36,10 @@ public class FoldTextView extends TextView {
         super(context, attrs, defStyleAttr);
     }
 
-    private boolean isFold = false;
+    private boolean isOpen = false;
 
     public void fold() {
-        if (isFold) {
+        if (isOpen) {
             close();
         } else {
             open();
@@ -94,9 +94,9 @@ public class FoldTextView extends TextView {
         postDelayed(new Runnable() {
             @Override
             public void run() {
-                isFold = !isFold;
+                isOpen = !isOpen;
                 if (onFoldChangeListener != null) {
-                    onFoldChangeListener.onFoldEnd(FoldTextView.this, isFold);
+                    onFoldChangeListener.onFoldEnd(FoldTextView.this, isOpen);
                 }
             }
         }, duration);
@@ -133,10 +133,10 @@ public class FoldTextView extends TextView {
     private OnAnimListener onAnimListener;
 
     /**
-     * @return 是否是收缩状态
+     * @return 是否是打开状态
      */
-    public boolean isFold() {
-        return isFold;
+    public boolean isOpen() {
+        return isOpen;
     }
 
     @Override
@@ -151,7 +151,7 @@ public class FoldTextView extends TextView {
                         setMax(height);
                     }
                     getLayoutParams().height = minHeight;
-                    isFold = true;
+                    isOpen = false;
                     requestLayout();
                 }
             });
